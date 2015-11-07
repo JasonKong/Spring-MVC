@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spider</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+  </head>
+
+  <body>
+    <h2>Web crawler</h2>
+    <form method="POST"  action="crawl">
+      <label for="uri">URI:</label>
+      <input type="text" name="uri" value="http://www.unitec.ac.nz"></input><br/>
+      <label for="depth">Depth:</label>
+      <input type="text" name="depth" value="2"></input><br/>
+
+      <input type="submit" value="crawl"></input>
+    </form>
+
+  </body>
+</html>

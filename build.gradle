@@ -1,0 +1,36 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+version = '1.0'
+jar {
+	baseName = 'books'
+	version  = '1.0.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.hibernate:hibernate-validator:5.1.3.Final') // import Hibernate's implementation of the Java Validation API
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-jdbc")
+	compile("org.thymeleaf:thymeleaf-spring4")
+	compile("org.hsqldb:hsqldb:2.3.+")
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.0'
+}

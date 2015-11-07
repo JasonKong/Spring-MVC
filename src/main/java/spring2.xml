@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="crawler" class="spring.webcrawler.service.crawler.CrawlerByHttpClientService">
+    </bean>
+    
+    <bean id="parser" class="spring.webcrawler.service.parser.ParserByJerryService">
+    	<property name="indexCreator" ref="indexCreator"></property>
+    </bean>
+    
+    <bean id="indexCreator" class="spring.webcrawler.service.index.IndexCreatorService">
+    </bean>
+    
+    <bean id="spider" class="spring.webcrawler.service.spider.SpiderService">
+    	<property name="crawler" ref="crawler"></property>
+    	<property name="parser" ref="parser"></property>
+    </bean>
+    
+    <bean id="searcher" class="spring.webcrawler.service.searcher.SearcherByLuceneService">
+    </bean>
+</beans>
